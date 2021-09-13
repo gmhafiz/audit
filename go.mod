@@ -1,4 +1,4 @@
-module audit
+module github.com/gmhafiz/audit
 
 go 1.17
 
