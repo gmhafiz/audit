@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-
 	"github.com/go-sql-driver/mysql"
 	"github.com/lib/pq"
 	"github.com/qustavo/sqlhooks/v2"
@@ -83,10 +82,10 @@ func (h *Hooks) After(ctx context.Context, result driver.Result, rows driver.Row
 			switch h.Auditor.dbType {
 			case MysqlDB:
 				id, err := result.LastInsertId()
-				lastInsertID = id
 				if err != nil {
 					return ctx, err
 				}
+				lastInsertID = id
 			case PostgresDB:
 				lastInsertID = 0
 			}
